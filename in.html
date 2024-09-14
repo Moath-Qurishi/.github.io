@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كيف تجتاز مقابلة العمل بنجاح بـ 5 خطوات تتقدر تستخدمهم بـ ChatGPT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d3d3d3; 
+            color: #333;
+            direction: rtl;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+        }
+        #main-header {
+            background: #5e5c64;
+            color: #000000;
+            padding-top: 20px;
+            min-height: 30px;
+            border-bottom: #555555 30px solid;
+        }
+        #main-header h1 {
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0;
+            font-size: 50px;
+        }
+        .box {
+            background: rgba(106, 106, 106, 0.56);
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #000000;
+        }
+        .box h2 {
+            background: #4b4a41; 
+            padding: 10px;
+            cursor: pointer;
+            margin: 0;
+            text-align: center; 
+        }
+        .content {
+            display: none;
+            margin-top: 8px;
+            background: #6f7c8b; /* لون بوكس الشرح الأزرق */
+            color: #000000; /* لون النص داخل الشرح الأحمر */
+            padding: 1px;
+            border-radius: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin: 90px 0;
+        }
+        .footer a {
+            color: #1477d3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>مقابلة العمل</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="box">
+            <p>5 نصائح تجتاز مقابلة العمل بنجاح تتقدر تستخدمهم  ChatGPT</p>
+        </div>
+        <div class="box">
+            <h2 onclick="toggleContent('content1')"> اعمل بحث عن الشركة</h2>
+            <div id="content1" class="content">
+                <p>
+                    ✨I have an interview with [Company name]<br><br>
+                    Can you provide a SWOT* analysis based on their website [insert link] and suggest 2-3 interview questions that I can ask?""
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <h2 onclick="toggleContent('content2')"> حلل وصف الوظيفة</h2>
+            <div id="content2" class="content">
+                <p>
+                    ✨What are the key skills, qualifications and experiences that the company is seeking in a candidate?<br>
+                    Here is the job spec: [Insert job spec]<br><br>
+                    Then - Can you provide interview questions based on the job spec?<br><br>
+                    Please rank the questions based on key criteria for the role.
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <h2 onclick="toggleContent('content3')"> جيب إجابات الاسئلة المتوقعة</h2>
+            <div id="content3" class="content">
+                <p>✨Based on my CV, please answer this question [insert the question].<br><br>
+                    Now Improve your answer.<br><br>
+                    Prompt: I have written a response to a question, and I would like your feedback on how to improve it [paste your answer].
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <h2 onclick="toggleContent('content4')"> قم بالبحث عن مسؤول التوظيف في الشركة</h2>
+            <div id="content4" class="content">
+                <p>✨I will provide you with the LinkedIn profile link of my interviewer.<br><br>
+                    Please analyze and prepare questions I can ask [paste the URL].<br><br>
+                    Hype up the interviewer by focusing on their:<br><br>
+                    1. Career choice<br>
+                    2. Their biggest career wins<br>
+                    3. What advice would they give<br>
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <h2 onclick="toggleContent('content5')"> ابعث رسالة شكر</h2>
+            <div id="content5" class="content">
+                <p>✨Please create a structure for the thank you email, which I can send after the interview.<br><br>
+                    Note: Personalise the email by referring to key moments from the interview<br><br>
+                    Bonus: Send insightful articles related to the topic you discussed in the interview. You will be guaranteed to stand out.
+
+                </p>
+            </div>
+        </div>
+        <div class="footer">
+            <p> لكن قبل كل هذا لازم تكون جاهز بـ CV بروفيشنال يليق بمقام خبرتك وضروري يكون مُطابق لنظام لـ ATS  وراح تلاقي نصائح جدا مفيدة هون
+                <a href="CV.html" > C.V</a>
+            </p>
+        </div>
+    </div>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطة النظم المعلوماتية الطبيةالحيوية</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/2.1.53/go.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(169, 169, 169, 0.8); 
+            color: rgb(64, 86, 106);
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 139vh;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHWYHJ1OJ_XPfLMZ_Miv4EC4fcVD8BhZkljA&s');
+
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            margin-bottom: 20px;
+            text-align: center;
+            background-color: rgba(101, 101, 104, 0.8);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #ffffff;
+        }
+
+        #courseMap {
+            width: 100%;
+            height: 350px;
+            border: 10px solid #3a3261;
+            background-color: rgb(52, 52, 152);
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .icon {
+            width: 30px;
+            vertical-align: middle;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .box {
+            background-color: rgba(3, 34, 63, 0.7);
+            padding: 7px 11px;
+            margin: -48px;
+            border-radius: 60px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        .box-large {
+            background-color: rgba(85, 137, 204, 0.88);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>خطة هندسة المعلوماتية الطبية</h1>
+        </div>
+        <div id="courseMap"></div>
+    </div>
+    <script>
+        
+        function init() {
+            const $ = go.GraphObject.make;
+
+            const diagram = $(go.Diagram, "courseMap", {
+                initialAutoScale: go.Diagram.Uniform,
+                layout: $(go.LayeredDigraphLayout, { direction: 90 }) 
+            });
+
+            diagram.nodeTemplate =
+                $(go.Node, "Auto",
+                    {
+                        click: (e, obj) => {
+                            const url = obj.part.data.url;
+                            if (url) {
+                                window.open(url, '_blank');
+                            }
+                        }
+                    },
+                    $(go.Shape, "RoundedRectangle", { strokeWidth: 0, fill: "rgba(84, 89, 93, 0.81)" }), // أزرق داكن
+                    $(go.TextBlock, { margin: 8, font: "bold 12pt Arial", stroke: "#ffffff" }, // أبيض
+                        new go.Binding("text", "key"))
+                );
+
+            diagram.model = new go.GraphLinksModel(
+                [
+                { key: "CPE 150", url: "https://drive.google.com/drive/folders/1deT-vd6k6zrEbCJCG21PASwhFd5MegqF?usp=drive_link/" },
+                    { key: "CPE 150L", url: "https://drive.google.com/drive/folders/11ofx1Wm4KAb9P444zVIwTHmlD-mi2z5C?usp=drive_link/" },
+                    { key: "CPE 286", url: "https://drive.google.com/drive/folders/1zGZRkQex5aSXqwo78RcesRSoWHEPnN4i?usp=drive_link/" },
+                    { key: "BME 366", url: "https://drive.google.com/drive/folders/1a2tEEBSxj08DBnEZWOz7Xu_UYxoM3eap?usp=drive_link/" },
+                    { key: "ELE 205", url: "https://drive.google.com/drive/folders/1kax-B-C7o_aQFNoRDh9ry_BhKwvaep?usp=drive_link/" },
+                    { key: "STAT 203", url: "https://drive.google.com/drive/folders/1g3j6hNGsjdjJtB0-ZkJxAill4oVi4OPb?usp=drive_link/" },
+                    { key: "SCC 201", url: "https://drive.google.com/drive/folders/1IuzaXqx2WX3z_xbTnCyTN4VOKXKQ1V_f?usp=drive_link/" },
+                    { key: "BME 367", url: "https://drive.google.com/drive/folders/1SlZXHTo-QBFaDWkSXY396dZ7a0Cis5T4?usp=drive_link/" },
+                    { key: "CHEM 105", url: "https://drive.google.com/drive/folders/1pz_A6v513OqNuTa_te49M2zA1Vu8zung?usp=drive_link/" },
+                    { key: "CME 310", url: "https://drive.google.com/drive/folders/1qqPw7gTVCd_T_i0tvHN5xW-7dmZCA96w?usp=drive_link/" },
+                    { key: "SCC 102", url: "https://drive.google.com/drive/folders/1pUFF1OErMii4W2CQYlQbI5pV8fEg6EfC?usp=drive_link/" },
+                    { key: "BME 394", url: "https://drive.google.com/drive/folders/1CfprW8joHUVZcqMx8O9Fvzeni9418Fed?usp=drive_link/" },
+                    { key: "BME 300", url: "https://drive.google.com/drive/folders/1b21APd6LLYxLzK5qHM7SLxznjX1ojfi4?usp=drive_link/" },
+                    { key: "BME 472", url: "https://drive.google.com/drive/folders/1ODW0F7MtLDN-F0L4T6xIOxtswOsCqC4r?usp=drive_link/" },
+                    { key: "BME 496", url: "https://drive.google.com/drive/folders/1d2IevcmjFWHteWXmqE6fGwl5H7bC48Su?usp=drive_link/" },
+                    { key: "BME 473", url: "https://drive.google.com/drive/folders/17yjQZ5U3-vp2Iv9quy1HqeD8vXv36KQZ?usp=drive_link/" },
+                    { key: "ELE 251", url: "https://drive.google.com/drive/folders/14pKf8xw9UeIVJYc5IKZxIo8QxaTrB3dS?usp=drive_link/" },
+                    { key: "ELE 250", url: "https://drive.google.com/drive/folders/1Jb2ggqx_SJmSwUgn4Ts2BaQd9Wu3isIf?usp=drive_link/" },
+                    { key: "BME 356", url: "https://drive.google.com/drive/folders/1KsMFa9JjUxibfZnNEFUWL5yQf-lzK4mo?usp=drive_link/" },
+                    { key: "BME 357", url: "https://drive.google.com/drive/folders/1isJuDVNOrynL16mvjlSJimZ-WzK8xQzY?usp=drive_link/" },
+                    { key: "BME 380", url: "https://drive.google.com/drive/folders/1_AKQU4ITO1715yXISS0GbxgDy4Xy1kxV?usp=drive_link/" },
+                    { key: "BME 421", url: "https://drive.google.com/drive/folders/1hpW3PBqC8qVYVEWbv2CRoHLbMg976TEd?usp=drive_link/" },
+                    { key: "BME 523", url: "https://drive.google.com/drive/folders/1EuUO2qlQ0E2VgR6-PsdghOMU_-DteMyB?usp=drive_link/" },
+                    { key: "BME 564", url: "https://drive.google.com/drive/folders/111ppjnFHOe37B0mVUcMcX7caYoe0sXTu?usp=drive_link/" },
+                    { key: "BME 460", url: "https://drive.google.com/drive/folders/1L8WoG3tGY2dDk_4Qg5_U-WVs-dJJzB9x?usp=drive_link/" },
+                    { key: "BME 522", url: "https://drive.google.com/drive/folders/1jvQ6AbRcHmD3qSFCquYCMxtcwn1-mFLs?usp=drive_link/" },
+                    { key: "BME 538", url: "https://drive.google.com/drive/folders/1x9h56RzqtrLLmyJ7Txafo9W96huWBnma?usp=drive_link/" },
+                    { key: "BME 462", url: "https://drive.google.com/drive/folders/1Ks-FnAYPa-T6fPnZjRx_EkQVN7eoYy5u?usp=drive_link/" },
+                    { key: "BME 461", url: "https://drive.google.com/drive/folders/1ez3xGOZvEaqemWra17f54iQIfXeh-NYo?usp=drive_link/" },
+                    { key: "PHYS 101", url: "https://drive.google.com/drive/folders/1VZcQBqfPKs-GtnidLOETojd3EvSY8bnH?usp=drive_link/" },
+                    { key: "ELE 202", url: "https://drive.google.com/drive/folders/1CyXGfjoyJM6IKchVI_inntdo1BqFxyqn?usp=drive_link/" },
+                    { key: "PHYS 105", url: "https://drive.google.com/drive/folders/1mMelfy6dEMpJUBzv0NBUTQ30oEGkH6zp?usp=drive_link/" },
+                    { key: "PHYS 102", url: "https://drive.google.com/drive/folders/1_mqhul_gTrIoHDil0oCIpPASbG2Ar038?usp=drive_link/" },
+                    { key: "PHYS 106", url: "https://drive.google.com/drive/folders/1XJ2bFNMUruiAQqk3rcq5-6Sb-cZgZVX1?usp=drive_link/" },
+                    { key: "IE 205", url: "https://codeforces.com/" },
+                    { key: "EPE 220", url: "https://drive.google.com/drive/folders/1aZ0bFEi38QEFCTh8Na5QsWMSO5b8WI2z?usp=drive_link/" },
+                    { key: "BME 362", url: "https://drive.google.com/drive/folders/1yyqwy67c21PUSjNu2BhSkNQD305dV5ou?usp=drive_link/" },
+                    { key: "EPE 222", url: "https://drive.google.com/drive/folders/1vj_88RoOr1IhJ0iNW2e57J8DYUe6G4Dt?usp=drive_link/" },
+                    { key: "EPE 223", url: "https://drive.google.com/drive/folders/1Vjgll6qveGsFGs1Nuo2hI2d6cLL3IBFB?usp=drive_link/" },
+                    { key: "BME 390", url: "https://drive.google.com/drive/folders/1vGbiaaUXJzxQ_TgK7O0o-Jrt_3PGi4nX?usp=drive_link/" },
+                    { key: "BME 340", url: "https://drive.google.com/drive/folders/1TDjS3wM70GPSPWRk4agnYpIzKtpD_-Ra?usp=drive_link/" },
+                    { key: "EPE 354", url: "https://drive.google.com/drive/folders/1n4tp2wtDZTT47dXczIZQCnRsB7dv75Kf?usp=drive_link/" },
+                    { key: "BME 391", url: "https://drive.google.com/drive/folders/1GZX7a4kzmkUUHNSwlkz7kHLbH5jOG4w6?usp=drive_link/" },
+                    { key: "BME 422", url: "https://drive.google.com/drive/folders/1VwQIGeuEPJlATUgd1fuwuE015Y48LM78?usp=drive_link/" },
+                    { key: "BME 463", url: "https://drive.google.com/drive/folders/1ZGwwyNtajUvMPUsqJZFgWzpfJUAi173y?usp=drive_link/" },
+                    { key: "BME 420", url: "https://drive.google.com/drive/folders/1PmKfQNBvyRGCw9jGefbyFOl-k3mJyn85?usp=drive_link/" },
+                    { key: "MATH 101", url: "https://drive.google.com/drive/folders/1Svz44QBFJAsEwHACCFJNJ8fIdLfEnu7n?usp=drive_link/" },
+                    { key: "MATH 102", url: "https://drive.google.com/drive/folders/1fKU70LDTMDqEBR1jhvwP7To21n9XS4xV?usp=drive_link/" },
+                    { key: "MATH 205", url: "https://drive.google.com/drive/folders/1IyXqc0gL-MYc05MJjR-2CAi1y9EjCWJg?usp=drive_link/" },
+                    { key: "MATH 201", url: "https://drive.google.com/drive/folders/14wtr4YnD7UGwchB9mg3YSZlH4JAfGiAk?usp=drive_link/" },
+                    { key: "SCC 111", url: "https://drive.google.com/drive/folders/1W5xCHBtmQ0uPnO6AqDbm5Og-Cz1wikzx?usp=drive_link/" },
+                    { key: "BME 105", url: "https://drive.google.com/drive/folders/1F_cvXsspCdPLs7Cdft2doqFmH_XgPIrO?usp=drive_link/" },
+
+                ],
+                [
+                    { from: "CPE 150", to: "CPE 150L" }, { from: "CPE 150", to: "CPE 286" },
+                    { from: "CPE 150", to: "BME 366" },{ from: "CPE 150", to: "CME 310" },
+                    { from: "CPE 286", to: "ELE 205" },{ from: "BME 366", to: "BME 367" },
+                    
+                    
+                    { from: "SCC 102", to: "CHEM 105" },
+                    
+                    { from: "SCC 111", to: "SCC 201" },
+                    { from: "SCC 201", to: "STAT 203" },{ from: "SCC 201", to: "BME 105" },
+                    { from: "MATH 205", to: "CME 310" },
+                    { from: "PHYS 101", to: "PHYS 105" },{ from: "PHYS 101", to: "PHYS 102" },
+                    { from: "PHYS 101", to: "ELE 202" },{ from: "PHYS 101", to: "BME 300" },
+                    { from: "PHYS 102", to: "IE 205" },{ from: "PHYS 102", to: "PHYS 106" },
+                    { from: "PHYS 101", to: "BME 394" },
+                    
+                    { from: "MATH 101", to: "MATH 102" },{ from: "MATH 102", to: "MATH 201" },
+                    { from: "MATH 102", to: "MATH 205" },{ from: "MATH 102", to: "BME 300" },
+                    { from: "MATH 205", to: "BME 394" },{ from: "BME 394", to: "BME 496" },
+                    
+                    { from: "BME 300", to: "BME 472" },{ from: "BME 472", to: "BME 473" },
+                    
+                    { from: "MATH 205", to: "EPE 220" },{ from: "PHYS 102", to: "EPE 220" },
+                    { from: "EPE 220", to: "ELE 250" },{ from: "EPE 220", to: "BME 362" },
+                    { from: "EPE 220", to: "EPE 222" },
+                    
+                    { from: "EPE 222", to: "EPE 223" }, { from: "EPE 222", to: "EPE 354" },
+                    
+                    { from: "BME 362", to: "BME 390" },{ from: "BME 362", to: "BME 340" },
+                    { from: "BME 390", to: "BME 391" },{ from: "BME 390", to: "BME 422" },
+                    { from: "BME 422", to: "BME 462" },{ from: "BME 422", to: "BME 463" },
+                    
+                    { from: "ELE 250", to: "ELE 251" },{ from: "ELE 250", to: "BME 356" },
+                    { from: "BME 356", to: "BME 357" },{ from: "BME 356", to: "BME 380" },
+                    { from: "BME 380", to: "BME 420" },{ from: "BME 420", to: "BME 421" },
+                    { from: "BME 421", to: "BME 423" },{ from: "BME 420", to: "BME 522" },
+                    { from: "BME 420", to: "BME 564" },{ from: "BME 472", to: "BME 564" },
+                    { from: "BME 420", to: "BME 460" },{ from: "BME 460", to: "BME 461" },
+                    { from: "BME 460", to: "BME 538" },{ from: "BME 421", to: "BME 523" }
+                    
+                ]
+            );
+        }
+
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

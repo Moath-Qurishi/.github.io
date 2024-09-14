@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Submission Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="file"] {
+            border: none;
+        }
+
+        .file-inputs {
+            margin-bottom: 20px;
+        }
+
+        .file-inputs label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>File Submission Form</h2>
+        <form id="submissionForm">
+            <label for="name">Submitter Name (English only):</label>
+            <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+">
+            <label for="courseCode">Course Code:</label>
+            <input type="text" id="courseCode" name="courseCode" required>
+            <div class="file-inputs">
+                <label for="pdfFiles">PDF Files (up to 15 files, 100 MB max):</label>
+                <input type="file" id="pdfFiles" name="pdfFiles" accept="application/pdf" multiple>
+                <label for="imageFiles">Image Files (up to 15 files, 100 MB max):</label>
+                <input type="file" id="imageFiles" name="imageFiles" accept="image/*" multiple>
+                <label for="audioFiles">Audio Files (up to 15 files, 100 MB max):</label>
+                <input type="file" id="audioFiles" name="audioFiles" accept="audio/*" multiple>
+            </div>
+            <button type="submit">Submit</button>
+            <div class="error" id="error"></div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('submissionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const courseCode = document.getElementById('courseCode').value.trim();
+            const pdfFiles = document.getElementById('pdfFiles').files;
+            const imageFiles = document.getElementById('imageFiles').files;
+            const audioFiles = document.getElementById('audioFiles').files;
+            const errorDiv = document.getElementById('error');
+
+            if (name === "" || courseCode === "") {
+                errorDiv.textContent = "Please fill in all required fields.";
+                return;
+            }
+
+            if (/[^\w\s]/.test(name)) {
+                errorDiv.textContent = "Only English letters and spaces are allowed for the name.";
+                return;
+            }
+
+            const allFiles = [...pdfFiles, ...imageFiles, ...audioFiles];
+            if (allFiles.length > 15) {
+                errorDiv.textContent = "You can upload up to 15 files only.";
+                return;
+            }
+
+            let totalSize = 0;
+            for (const file of allFiles) {
+                totalSize += file.size;
+            }
+
+            if (totalSize > 100 * 1024 * 1024) { 
+                errorDiv.textContent = "Total file size should not exceed 100 MB.";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('courseCode', courseCode);
+            for (const file of pdfFiles) {
+                formData.append('pdfFiles', file);
+            }
+            for (const file of imageFiles) {
+                formData.append('imageFiles', file);
+            }
+            for (const file of audioFiles) {
+                formData.append('audioFiles', file);
+            }
+
+            fetch('YOUR_SERVER_ENDPOINT_HERE', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Files submitted successfully!');
+                } else {
+                    errorDiv.textContent = data.error;
+                }
+            })
+            .catch(error => {
+                errorDiv.textContent = "An error occurred during submission. Please try again.";
+            });
+        });
+    </script>
+</body>
+</html>

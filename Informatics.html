@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطة هندسة المعلوماتية الطبيةالحيوية</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/2.1.53/go.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(169, 169, 169, 0.8); 
+            color: rgb(64, 86, 106);
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 121vh;
+            background-image: url('data:image/jpeg;base64,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');
+
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            margin-bottom: 20px;
+            text-align: center;
+            background-color: rgba(101, 101, 104, 0.8);
+        }
+
+        .header h1 {
+            font-size: 2.1rem;
+            color: #ffffff;
+        }
+
+        #courseMap {
+            width: 100%;
+            height: 400px;
+            border: 10px solid #3a3261;
+            background-color: rgb(52, 52, 152);
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .icon {
+            width: 30px;
+            vertical-align: middle;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .box {
+            background-color: rgba(3, 34, 63, 0.7);
+            padding: 7px 11px;
+            margin: -48px;
+            border-radius: 60px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        .box-large {
+            background-color: rgba(85, 137, 204, 0.88);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>خطة هندسة المعلوماتية الطبية</h1>
+        </div>
+        <div id="courseMap"></div>
+    </div>
+    <script>
+        
+        function init() {
+            const $ = go.GraphObject.make;
+
+            const diagram = $(go.Diagram, "courseMap", {
+                initialAutoScale: go.Diagram.Uniform,
+                layout: $(go.LayeredDigraphLayout, { direction: 90 }) 
+            });
+
+             diagram.nodeTemplate =
+                $(go.Node, "Auto",
+                    {
+                        click: (e, obj) => {
+                            const url = obj.part.data.url;
+                            if (url) {
+                                window.open(url, '_blank');
+                            }
+                        }
+                    },
+                    $(go.Shape, "RoundedRectangle", { strokeWidth: 0, fill: "rgba(84, 89, 93, 0.81)" }), // أزرق داكن
+                    $(go.TextBlock, { margin: 8, font: "bold 12pt Arial", stroke: "#ffffff" }, // أبيض
+                        new go.Binding("text", "key"))
+                );
+
+            diagram.model = new go.GraphLinksModel(
+                [
+                    {key: "CPE 150", url: "https://drive.google.com/drive/folders/1deT-vd6k6zrEbCJCG21PASwhFd5MegqF?usp=drive_link/" },
+                    { key: "CPE 150L", url: "https://drive.google.com/drive/folders/11ofx1Wm4KAb9P444zVIwTHmlD-mi2z5C?usp=drive_link/" },
+                    { key: "CPE 286", url: "https://drive.google.com/drive/folders/1zGZRkQex5aSXqwo78RcesRSoWHEPnN4i?usp=drive_link/" },
+                    { key: "BME 366", url: "https://drive.google.com/drive/folders/1a2tEEBSxj08DBnEZWOz7Xu_UYxoM3eap?usp=drive_link/" },
+                    { key: "ELE 205", url: "https://drive.google.com/drive/folders/1kax-B-C7o_aQFNoRDh9ry_BhKwvaep?usp=drive_link/" },
+                    { key: "BMIE 362", url: "https://drive.google.com/drive/folders/11n8ODf1ZU1qhcK6Wx7bukn-4gABFcvUh?usp=drive_link/" },
+                    { key: "SCC 201", url: "https://drive.google.com/drive/folders/1IuzaXqx2WX3z_xbTnCyTN4VOKXKQ1V_f?usp=drive_link/" },
+                    { key: "BME 367", url: "https://drive.google.com/drive/folders/1SlZXHTo-QBFaDWkSXY396dZ7a0Cis5T4?usp=drive_link/" },
+                    { key: "CHEM 105", url: "https://drive.google.com/drive/folders/1pz_A6v513OqNuTa_te49M2zA1Vu8zung?usp=drive_link/" },
+                    { key: "CME 310", url: "https://drive.google.com/drive/folders/1qqPw7gTVCd_T_i0tvHN5xW-7dmZCA96w?usp=drive_link/" },
+                    { key: "SCC 102", url: "https://drive.google.com/drive/folders/1pUFF1OErMii4W2CQYlQbI5pV8fEg6EfC?usp=drive_link/" },
+                    { key: "ELE 251", url: "https://drive.google.com/drive/folders/14pKf8xw9UeIVJYc5IKZxIo8QxaTrB3dS?usp=drive_link/" },
+                    { key: "ELE 250", url: "https://drive.google.com/drive/folders/1Jb2ggqx_SJmSwUgn4Ts2BaQd9Wu3isIf?usp=drive_link/" },
+                    { key: "BME 356", url: "https://drive.google.com/drive/folders/1KsMFa9JjUxibfZnNEFUWL5yQf-lzK4mo?usp=drive_link/" },
+                    { key: "BME 380", url: "https://drive.google.com/drive/folders/1_AKQU4ITO1715yXISS0GbxgDy4Xy1kxV?usp=drive_link/" },
+                    { key: "BME 421", url: "https://drive.google.com/drive/folders/1hpW3PBqC8qVYVEWbv2CRoHLbMg976TEd?usp=drive_link/" },
+                    { key: "BME 460", url: "https://drive.google.com/drive/folders/1L8WoG3tGY2dDk_4Qg5_U-WVs-dJJzB9x?usp=drive_link/" },
+                    { key: "PHYS 101", url: "https://drive.google.com/drive/folders/1VZcQBqfPKs-GtnidLOETojd3EvSY8bnH?usp=drive_link/" },
+                    { key: "ELE 202", url: "https://drive.google.com/drive/folders/1CyXGfjoyJM6IKchVI_inntdo1BqFxyqn?usp=drive_link/" },
+                    { key: "PHYS 105", url: "https://drive.google.com/drive/folders/1mMelfy6dEMpJUBzv0NBUTQ30oEGkH6zp?usp=drive_link/" },
+                    { key: "PHYS 102", url: "https://drive.google.com/drive/folders/1_mqhul_gTrIoHDil0oCIpPASbG2Ar038?usp=drive_link/" },
+                    { key: "PHYS 106", url: "https://drive.google.com/drive/folders/1XJ2bFNMUruiAQqk3rcq5-6Sb-cZgZVX1?usp=drive_link/" },
+                    { key: "IE 205", url: "https://codeforces.com/" },
+                    { key: "EPE 220", url: "https://drive.google.com/drive/folders/1aZ0bFEi38QEFCTh8Na5QsWMSO5b8WI2z?usp=drive_link/" },
+                    { key: "BME 390", url: "https://drive.google.com/drive/folders/1vGbiaaUXJzxQ_TgK7O0o-Jrt_3PGi4nX?usp=drive_link/" },
+                    { key: "BME 340", url: "https://drive.google.com/drive/folders/1TDjS3wM70GPSPWRk4agnYpIzKtpD_-Ra?usp=drive_link/" },
+                    { key: "EPE 354", url: "https://drive.google.com/drive/folders/1n4tp2wtDZTT47dXczIZQCnRsB7dv75Kf?usp=drive_link/" },
+                    { key: "BME 420", url: "https://drive.google.com/drive/folders/1PmKfQNBvyRGCw9jGefbyFOl-k3mJyn85?usp=drive_link/" },
+                    { key: "MATH 101", url: "https://drive.google.com/drive/folders/1Svz44QBFJAsEwHACCFJNJ8fIdLfEnu7n?usp=drive_link/" },
+                    { key: "MATH 102", url: "https://drive.google.com/drive/folders/1fKU70LDTMDqEBR1jhvwP7To21n9XS4xV?usp=drive_link/" },
+                    { key: "MATH 205", url: "https://drive.google.com/drive/folders/1IyXqc0gL-MYc05MJjR-2CAi1y9EjCWJg?usp=drive_link/" },
+                    { key: "MATH 201", url: "https://drive.google.com/drive/folders/14wtr4YnD7UGwchB9mg3YSZlH4JAfGiAk?usp=drive_link/" },
+                    { key: "BMIE 402", url: "https://drive.google.com/drive/folders/1px-eSomFWqsUIhHp62FBddJeCzdqUUeI?usp=drive_link/" },
+                    { key: "BMIE 540", url: "https://drive.google.com/drive/folders/10bLk7-IDJt1qfgKV6I99dCa2T2tLwY7r?usp=drive_link/" },
+                    { key: "BMIE 423", url: "https://drive.google.com/drive/folders/1TY_K5thW4TtVfDw5szyLv0fSXV7GeH2c?usp=drive_link/" },
+                    { key: "BMIE 350", url: "https://drive.google.com/drive/folders/1c3D2eFuAFw_ZVZPhPHaZJDBr7F0lr0YY?usp=drive_link/" },
+                    { key: "BMIE 460", url: "https://drive.google.com/drive/folders/13apUQLgbLqXQ5ZsK5WaH8judyLTINLU8?usp=drive_link/" },
+                    { key: "BMIE 430", url: "https://drive.google.com/drive/folders/1DJCvz58gVxRR-XxFN-Ja8btMXL4ONnXY?usp=drive_link/" },
+                    { key: "BMIE 530", url: "https://drive.google.com/drive/folders/1LILGS1ENUE1H-7OMQGFY4hOvxesLWsO2?usp=drive_link/" },
+                    { key: "BMIE 531", url: "https://drive.google.com/drive/folders/1x9VgD-eJQXVqkH1sFsG0r4EwFNLUpzdP?usp=drive_link/" },
+                    { key: "BMIE 456", url: "https://drive.google.com/drive/folders/1Jrcuycz09SJfOJkR09LO5gl-wZ1FgvqS?usp=drive_link/" },
+                    { key: "BMIE 452", url: "https://drive.google.com/drive/folders/1O9i9b3iNCIkp5JxIjg_nWIdh1IKb6K91?usp=drive_link/" },
+                    { key: "BMIE 453", url: "https://drive.google.com/drive/folders/1X7V_j5Lln7ntNaMmfPJSq6zmPc5Z0P5D?usp=drive_link/" },
+                    { key: "CPE 354", url: "https://drive.google.com/drive/folders/184kp_pll_Ps-8ELyiJyrkeE2P8TKAa4B?usp=drive_link/" },
+                    { key: "CPE 354L", url: "https://drive.google.com/drive/folders/1hu3Hq18ytOU3PIGJltouvOHwP0CIPPFg?usp=drive_link/" },
+                    { key: "CPE 450", url: "https://drive.google.com/drive/folders/1APM9d8BTw2ls9-Yv3uz5shrQEFfMNeOB?usp=drive_link/" },
+                    { key: "CPE 450L", url: "https://drive.google.com/drive/folders/10h3WBiOrK5yTQfVISq7t-4JOKhM8-h0a?usp=drive_link/" },
+                    { key: "BME 362", url: "https://drive.google.com/drive/folders/1yyqwy67c21PUSjNu2BhSkNQD305dV5ou?usp=drive_link/" },
+                    { key: "SCC 111", url: "https://drive.google.com/drive/folders/1W5xCHBtmQ0uPnO6AqDbm5Og-Cz1wikzx?usp=drive_link/" },
+                    { key: "BME 422", url: "https://drive.google.com/drive/folders/1VwQIGeuEPJlATUgd1fuwuE015Y48LM78?usp=drive_link/" },
+
+                ],
+                [
+                    { from: "CPE 150", to: "CPE 150L" }, { from: "CPE 150", to: "CPE 286" },
+                    { from: "CPE 150", to: "BME 366" },{ from: "CPE 286", to: "ELE 205" },
+                    { from: "BME 366", to: "BME 367" },{ from: "CPE 150", to: "CME 310" },
+                    { from: "ELE 205", to: "BMIE 362" },{ from: "BMIE 362", to: "BMIE 402" },
+                    { from: "BMIE 402", to: "BMIE 540" },{ from: "BMIE 402", to: "BMIE 423" },
+                    { from: "CME 310", to: "BMIE 350" },{ from: "BMIE 350", to: "BMIE 430" },
+                    { from: "BMIE 430", to: "BMIE 456" },{ from: "BMIE 430", to: "BMIE 530" },
+                    { from: "BMIE 530", to: "BMIE 531" },{ from: "BMIE 430", to: "BMIE 452" },
+                    { from: "BMIE 452", to: "BMIE 453" },{ from: "BMIE 350", to: "CPE 354" },
+                    { from: "CPE 354", to: "CPE 354L" },{ from: "CPE 354", to: "BMIE 452" },
+                    { from: "CPE 354", to: "CPE 450" },{ from: "CPE 450", to: "CPE 450L" },
+                    { from: "CPE 450", to: "BMIE 460" },{ from: "BMIE 350", to: "BMIE 423" },
+
+                    { from: "MATH 205", to: "CME 310" },
+                 
+                    { from: "SCC 111", to: "SCC 201" },
+                    { from: "SCC 111", to: "BMIE 430" },
+
+                    { from: "SCC 102", to: "CHEM 105" },
+
+                    
+                    { from: "PHYS 101", to: "PHYS 105" },{ from: "PHYS 101", to: "PHYS 102" },
+                    { from: "PHYS 101", to: "ELE 202" },{ from: "PHYS 102", to: "IE 205" },
+                    { from: "PHYS 102", to: "PHYS 106" },
+                    
+                    { from: "MATH 101", to: "MATH 102" },{ from: "MATH 102", to: "MATH 201" },
+                    { from: "MATH 102", to: "MATH 205" },                    
+                    
+                    { from: "MATH 205", to: "EPE 220" },{ from: "PHYS 102", to: "EPE 220" },
+                    { from: "EPE 220", to: "ELE 250" },{ from: "EPE 220", to: "BME 362" },
+                    { from: "EPE 220", to: "EPE 354" },                    
+                   
+                    { from: "BME 362", to: "BME 390" },{ from: "BME 362", to: "BME 340" },
+                    { from: "BME 390", to: "BME 422" },
+                    
+                    { from: "ELE 250", to: "ELE 251" },{ from: "ELE 250", to: "BME 356" },
+                    { from: "BME 356", to: "BME 380" },{ from: "BME 380", to: "BME 420" },
+                    { from: "BME 420", to: "BME 421" },{ from: "BME 420", to: "BME 460" }
+                    
+                ]
+            );
+        }
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

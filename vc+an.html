@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطة هندسة المعلوماتية الطبيةالحيوية</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/2.1.53/go.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #bb9106;
+            color: rgb(47, 128, 204);
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 89vh;
+        }
+
+        .container {
+            text-align: center;
+            width: 108%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .header {
+            margin-bottom: 17px;
+            text-align: center;
+            background-color: rgba(65, 65, 177, 0.8); /* خلفية بيضاء شفافة */
+        }
+
+        .header h1 {
+            font-size: 2.1rem;
+            color: #ffffff;
+        }
+        .header h2 {
+            font-size: 1.4rem;
+            color: #000000;
+        }
+
+        #courseMap {
+            width: 101%;
+            height: 332px;
+            border: 15px solid #3a3261;
+            background-color: rgb(52, 52, 152);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>مهم للمقبل على وظيفة</h1>
+            <h2>النقاط التي على نهاية الاسهم فقط تفتح على روابط</h2>
+        </div>
+        <div id="courseMap"></div>
+    </div>
+    <script>
+        function preventNavigation(url) {
+            const blockedPages = ['CV.html', 'in.html'];
+            
+            return true;
+        }
+
+        function init() {
+            const $ = go.GraphObject.make;
+
+            const diagram = $(go.Diagram, "courseMap", {
+                initialAutoScale: go.Diagram.Uniform,
+                layout: $(go.LayeredDigraphLayout, { direction: 90 }) 
+            });
+
+            diagram.nodeTemplate =
+                $(go.Node, "Auto",
+                    {
+                        click: (e, obj) => {
+                            const url = obj.part.data.url;
+                            if (url && preventNavigation(url)) {
+                                window.location.href = url;
+                            }
+                        }
+                    },
+                    $(go.Shape, "RoundedRectangle", { strokeWidth: 0, fill: "rgba(84, 89, 93, 0.81)" }), // أزرق داكن
+                    $(go.TextBlock, { margin: 8, font: "bold 12pt Arial", stroke: "#ffffff" }, // أبيض
+                        new go.Binding("text", "key"))
+                );
+
+            diagram.model = new go.GraphLinksModel(
+                [
+                    { key: "الوظيفة" },
+                    { key: "CV" },
+                    { key: "نقاط مهمة", url: "CV.html" },
+                    { key: "Ai sites to make C.V" },
+                    { key: "3 3D Animator Resume Examples for 2024", url: "https://thisresumedoesnotexist.com/resume-examples/3d-animator/" },
+                    { key: "kickresume", url: "https://www.kickresume.com/en/help-center/resume-samples/" },
+                    { key: "cvlogin", url: "https://cvlogin.com/ar/musaeada" },
+                    { key: "مقابلة عمل", url: "in.html" },
+                ],
+                [
+                    { from: "الوظيفة", to: "CV" },{ from: "الوظيفة", to: "مقابلة عمل" },
+                    { from: "مقابلة عمل", to: "" },{ from: "CV", to: "نقاط مهمة" },
+                    { from: "CV", to: "Ai sites to make C.V" },
+                    { from: "Ai sites to make C.V", to: "3 3D Animator Resume Examples for 2024" },
+                    { from: "Ai sites to make C.V", to: "kickresume" },
+                    { from: "Ai sites to make C.V", to: "cvlogin" },
+                    
+                ]
+            );
+        }
+
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
