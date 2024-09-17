@@ -1,4 +1,3 @@
-        
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -31,6 +30,7 @@
         .navbar {
             background-color: #806200;
             padding: 10px;
+            position: relative;
         }
 
         .navbar ul {
@@ -55,7 +55,7 @@
         }
 
         .navbar li:hover > a {
-            background-color: #806200;
+            background-color: #5a4400;
             border-radius: 5px;
         }
 
@@ -81,10 +81,12 @@
 
         .submenu a {
             padding: 10px;
+            background-color: #886c0f; /* تغيير اللون هنا */
+            display: block;
         }
 
         .menu-icon {
-            display: none; /* إخفاء الأيقونة بشكل افتراضي */
+            display: none; 
             cursor: pointer;
             font-size: 24px;
             color: white;
@@ -126,7 +128,6 @@
             margin-left: 10px;
         }
 
-        /* لإخفاء القائمة في الشاشات الصغيرة وعرض أيقونة القائمة */
         @media (max-width: 768px) {
             .navbar ul {
                 display: none;
@@ -141,6 +142,20 @@
             .navbar.active ul {
                 display: flex;
             }
+
+            .navbar .submenu {
+                display: block;
+                position: static;
+                min-width: 0;
+            }
+
+            .navbar li:hover .submenu {
+                display: block;
+            }
+
+            .submenu.active {
+                display: block;
+            }
         }
     </style>
  
@@ -149,18 +164,18 @@
 
 <!-- قائمة التنقل -->
 <div class="navbar">
-    <span class="menu-icon" onclick="toggleMenu()">&#9776;</span> <!-- أيقونة الهامبرغر -->
+    <span class="menu-icon" onclick="toggleMenu()">&#9776;</span> 
     <ul>
         <li><a href="index.html">المنزل</a></li>
         <li>
-            <a href="#">الخطة الشجرية</a>
+            <a href="#" onclick="toggleSubmenu(event)">الخطة الشجرية</a>
             <ul class="submenu">
                 <li><a href="Organized.html" target="_blank">الخطة الشجرية لهندسة <br>النظم الطبية الحيوية</a></li>
                 <li><a href="Informatics.html" target="_blank">الخطة الشجرية لهندسة <br>المعلوماتية الطبية الحيوية</a></li>
             </ul>
         </li>
         <li>
-            <a href="#">حول القسم</a>
+            <a href="#" onclick="toggleSubmenu(event)">حول القسم</a>
             <ul class="submenu">
                 <li><a href="https://hijjawi.yu.edu.jo/index.php/ar/bme/faculty-members" target="_blank">دكاترة القسم</a></li>
                 <li><a href="https://hijjawi.yu.edu.jo/index.php/ar/bme/staff" target="_blank">مهندسين القسم</a></li>
@@ -169,18 +184,18 @@
         </li>
         
         <li>
-            <a href="#">الارشاد الطلابي</a>
+            <a href="#" onclick="toggleSubmenu(event)">الارشاد الطلابي</a>
             <ul class="submenu">
-            <a href="A.html" target="_blank">طلاب الارشاد</a>
-            <a href="f.html" target="_blank">فيديوهات إرشادية</a>
-        </ul>
+                <li><a href="A.html" target="_blank">طلاب الارشاد</a></li>
+                <li><a href="f.html" target="_blank">فيديوهات إرشادية</a></li>
+            </ul>
         </li>
         <li>
-            <a href="#">مواضيع تعليمية</a>
+            <a href="#" onclick="toggleSubmenu(event)">مواضيع تعليمية</a>
             <ul class="submenu">
-                <a href="English.html" target="_blank">تعلم اللغة الانجليزية</a>
-                <a href="vc+an.html" target="_blank">مهم للمقبل على وظيفة</a>
-             </ul>
+                <li><a href="English.html" target="_blank">تعلم اللغة الانجليزية</a></li>
+                <li><a href="vc+an.html" target="_blank">مهم للمقبل على وظيفة</a></li>
+            </ul>
         </li>
         <li><a href="enter.html" target="_blank">اضافة تفاريغ طلابية</a></li>
         <li><a href="evaluation.html" target="_blank">الاقتراحات والشكاوي</a></li>
@@ -264,7 +279,13 @@
 <script>
     function toggleMenu() {
         var navbar = document.querySelector('.navbar');
-        navbar.classList.toggle('active'); // تفعيل أو إلغاء تفعيل الفئة
+        navbar.classList.toggle('active'); 
+    }
+
+    function toggleSubmenu(event) {
+        event.preventDefault();
+        var submenu = event.target.nextElementSibling;
+        submenu.classList.toggle('active');
     }
 </script>
 
