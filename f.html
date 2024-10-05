@@ -62,12 +62,6 @@
   hr {
     border: 2px solid black; 
   }
-  #videoPlayer {
-    width: 100%;
-    max-width: 640px;
-    display: none;
-    margin-top: 20px;
-  }
   .icon {
     width: 30px;
     vertical-align: middle;
@@ -76,13 +70,6 @@
   }
   .underline {
     text-decoration: underline;
-  }
-  iframe {
-    width: 100%;
-    max-width: 640px;
-    height: 360px;
-    display: none; /* اخفاء في البداية */
-    margin-top: 20px;
   }
 </style>
 </head>
@@ -93,45 +80,41 @@
 <div class="video-container">
    
   <div>
-    <p class="video-link" onclick="showVideo('https://youtu.be/6OYDFpE0X9Y?list=PLMW58mwVmp-CtB3eI5lbH9_zdYb4V-BNx')"> آلية استكمال إجراءات القبول الموحد  </p>
+    <p class="video-link" onclick="openVideo('https://youtu.be/6OYDFpE0X9Y?list=PLMW58mwVmp-CtB3eI5lbH9_zdYb4V-BNx')"> آلية استكمال إجراءات القبول الموحد  </p>
   </div>
   
   <div>
-    <p class="video-link" onclick="showVideo('https://www.youtube.com/embed/t-p5Exz0NMA')">تسجيل المواد وتغيير الشعب</p>
+    <p class="video-link" onclick="openVideo('https://www.youtube.com/embed/t-p5Exz0NMA')">تسجيل المواد وتغيير الشعب</p>
   </div>
   <div>
-    <p class="video-link" onclick="showVideo('https://www.youtube.com/watch?v=vFLwT2I4sNc&list=PLMW58mwVmp-CtB3eI5lbH9_zdYb4V-BNx')"> خطوات تفعيل البريد الإلكتروني الجامعي    </p>
+    <p class="video-link" onclick="openVideo('https://youtu.be/vFLwT2I4sNc?list=PLMW58mwVmp-CtB3eI5lbH9_zdYb4V-BNx')"> خطوات تفعيل البريد الإلكتروني الجامعي    </p>
   </div>
   <div>
-    <p class="video-link" onclick="showVideo('https://youtu.be/TTYBA5OCL8Q?si=x8qtGxY7nBTCQlk9')">طريقة تنزيل تيمز على اللاب توب</p>
+    <p class="video-link" onclick="openVideo('https://youtu.be/TTYBA5OCL8Q?si=x8qtGxY7nBTCQlk9')">طريقة تنزيل تيمز على اللاب توب</p>
   </div>
 
   <div>
-    <p class="video-link" onclick="showVideo('https://www.youtube.com/embed/3TKY82sZ1Ck')">كم رسوم الدفع والمطالبة المالية</p>
+    <p class="video-link" onclick="openVideo('https://www.youtube.com/embed/3TKY82sZ1Ck')">كم رسوم الدفع والمطالبة المالية</p>
   </div>
   <div>
-    <p class="video-link" onclick="showVideo('https://www.youtube.com/embed/K8R25Lx8eH4')">تقديم طلبات غير مكتمل</p>
+    <p class="video-link" onclick="openVideo('https://www.youtube.com/embed/K8R25Lx8eH4')">تقديم طلبات غير مكتمل</p>
   </div>
  <br>
   <div>
-    <p class="video-link" onclick="showVideo('https://www.youtube.com/embed/2qb5OcAf268')">حساب تأثير إعادة مادة <br> على المعدل التراكمي</p>
+    <p class="video-link" onclick="openVideo('https://www.youtube.com/embed/2qb5OcAf268')">حساب تأثير إعادة مادة <br> على المعدل التراكمي</p>
   </div>
   <div>
-    <p class="video-link" onclick="showVideo('https://www.youtube.com/embed/4svohBV9O80')">فتح الأبحاث العلمية <br> بشكل مجاني</p>
+    <p class="video-link" onclick="openVideo('https://www.youtube.com/embed/4svohBV9O80')">فتح الأبحاث العلمية <br> بشكل مجاني</p>
   </div>
 </div>
 
 <hr>
 
-<!-- تعريف إطار الفيديو -->
-<iframe id="videoPlayer" frameborder="0" allowfullscreen></iframe>
+<!-- لا حاجة ل iframe هنا -->
 
 <script>
-function showVideo(videoSrc) {
-  var videoPlayer = document.getElementById('videoPlayer');
-  videoPlayer.src = videoSrc; // تعيين المصدر الجديد للفيديو
-  videoPlayer.style.display = 'block'; // إظهار الإطار
-  window.scrollTo(0, document.body.scrollHeight); // نقل العرض إلى نهاية الصفحة
+function openVideo(videoUrl) {
+  window.open(videoUrl, '_blank'); // فتح الفيديو في علامة تبويب جديدة
 }
 </script>
 
