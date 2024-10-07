@@ -7,6 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/2.1.53/go.js"></script>
     <style>
 body {
+    
     font-family: Arial, sans-serif;
     background-color: rgba(169, 169, 169, 0.8); 
     color: rgb(64, 86, 106);
@@ -85,7 +86,6 @@ body {
         <div id="courseMap"></div>
     </div>
     <script>
-        
         function init() {
             const $ = go.GraphObject.make;
 
@@ -105,9 +105,10 @@ body {
                         }
                     },
                     $(go.Shape, "RoundedRectangle", { strokeWidth: 0, fill: "rgba(84, 89, 93, 0.81)" }), // أزرق داكن
-                    $(go.TextBlock, { margin: 8, font: "bold 12pt Arial", stroke: "#ffffff" }, // أبيض
+                    $(go.TextBlock, { margin: 8, font: "bold 12pt Arial", stroke: "#ffffff", textAlign: "center" }, // أبيض
                         new go.Binding("text", "key"))
                 );
+
 
             diagram.model = new go.GraphLinksModel(
                 [
@@ -116,7 +117,7 @@ body {
                     { key: "ذكاء اصطناعي \n CPE 286", url: "https://drive.google.com/drive/folders/1zGZRkQex5aSXqwo78RcesRSoWHEPnN4i?usp=drive_link/" },
                     { key: "الدوائر القابلة للبرمجة \n BME 366", url: "https://drive.google.com/drive/folders/1a2tEEBSxj08DBnEZWOz7Xu_UYxoM3eap?usp=drive_link/" },
                     { key: "الكتابة التقنية واخلاقيات الهندسة \n ELE 205", url: "https://drive.google.com/drive/folders/1kax-B-C7o_aQFNoRDh9ry_BhKwvaep?usp=drive_link/" },
-                    { key: "BMIE 362", url: "https://drive.google.com/drive/folders/11n8ODf1ZU1qhcK6Wx7bukn-4gABFcvUh?usp=drive_link/" },
+                    { key: "الاقتصاد والادارة الهندسية \n BMIE 362", url: "https://drive.google.com/drive/folders/11n8ODf1ZU1qhcK6Wx7bukn-4gABFcvUh?usp=drive_link/" },
                     { key: "تشريح الانسان وعلم الوظائف \n SCC 201", url: "https://drive.google.com/drive/folders/1IuzaXqx2WX3z_xbTnCyTN4VOKXKQ1V_f?usp=drive_link/" },
                     { key: "مختبر الدوائر القابلة للبرمجة \n BME 367", url: "https://drive.google.com/drive/folders/1SlZXHTo-QBFaDWkSXY396dZ7a0Cis5T4?usp=drive_link/" },
                     { key: "مختبر كيمياء \n CHEM 105", url: "https://drive.google.com/drive/folders/1pz_A6v513OqNuTa_te49M2zA1Vu8zung?usp=drive_link/" },
@@ -124,84 +125,84 @@ body {
                     { key: "كيمياء عامة \n SCC 102", url: "https://drive.google.com/drive/folders/1pUFF1OErMii4W2CQYlQbI5pV8fEg6EfC?usp=drive_link/" },
                     { key: "مختبر الكترونيات 1 \n ELE 251", url: "https://drive.google.com/drive/folders/14pKf8xw9UeIVJYc5IKZxIo8QxaTrB3dS?usp=drive_link/" },
                     { key: "الكترونيات 1 \n ELE 250", url: "https://drive.google.com/drive/folders/1Jb2ggqx_SJmSwUgn4Ts2BaQd9Wu3isIf?usp=drive_link/" },
-                    { key: "BME 356", url: "https://drive.google.com/drive/folders/1KsMFa9JjUxibfZnNEFUWL5yQf-lzK4mo?usp=drive_link/" },
-                    { key: "BME 380", url: "https://drive.google.com/drive/folders/1_AKQU4ITO1715yXISS0GbxgDy4Xy1kxV?usp=drive_link/" },
-                    { key: "BME 421", url: "https://drive.google.com/drive/folders/1hpW3PBqC8qVYVEWbv2CRoHLbMg976TEd?usp=drive_link/" },
-                    { key: "BME 460", url: "https://drive.google.com/drive/folders/1L8WoG3tGY2dDk_4Qg5_U-WVs-dJJzB9x?usp=drive_link/" },
+                    { key: "الالكترو الطبية الحيوية \n BME 356", url: "https://drive.google.com/drive/folders/1KsMFa9JjUxibfZnNEFUWL5yQf-lzK4mo?usp=drive_link/" },
+                    { key: "المجسات الطبية \n BME 380", url: "https://drive.google.com/drive/folders/1_AKQU4ITO1715yXISS0GbxgDy4Xy1kxV?usp=drive_link/" },
+                    { key: "مختبر القياسات \n BME 421", url: "https://drive.google.com/drive/folders/1hpW3PBqC8qVYVEWbv2CRoHLbMg976TEd?usp=drive_link/" },
+                    { key: "الاجهزة الطبية \n BME 460", url: "https://drive.google.com/drive/folders/1L8WoG3tGY2dDk_4Qg5_U-WVs-dJJzB9x?usp=drive_link/" },
                     { key: "فيزياء عامة 1 \n PHYS 101", url: "https://drive.google.com/drive/folders/1VZcQBqfPKs-GtnidLOETojd3EvSY8bnH?usp=drive_link/" },
-                    { key: "ELE 202", url: "https://drive.google.com/drive/folders/1CyXGfjoyJM6IKchVI_inntdo1BqFxyqn?usp=drive_link/" },
+                    { key: "الرسم الهندسي باستخدام الحاسوب \n ELE 202", url: "https://drive.google.com/drive/folders/1CyXGfjoyJM6IKchVI_inntdo1BqFxyqn?usp=drive_link/" },
                     { key: "مختبر فيزياء عامة 1 \n PHYS 105", url: "https://drive.google.com/drive/folders/1mMelfy6dEMpJUBzv0NBUTQ30oEGkH6zp?usp=drive_link/" },
                     { key: "فيزياء عامة 2 \n PHYS 102", url: "https://drive.google.com/drive/folders/1_mqhul_gTrIoHDil0oCIpPASbG2Ar038?usp=drive_link/" },
                     { key: "مختبر فيزياء عامة 2 \n PHYS 106", url: "https://drive.google.com/drive/folders/1XJ2bFNMUruiAQqk3rcq5-6Sb-cZgZVX1?usp=drive_link/" },
                     { key: "مشاغل هندسية \n IE 205", url: "https://codeforces.com/" },
                     { key: "سيركت 1 \n EPE 220", url: "https://drive.google.com/drive/folders/1aZ0bFEi38QEFCTh8Na5QsWMSO5b8WI2z?usp=drive_link/" },
-                    { key: "BME 390", url: "https://drive.google.com/drive/folders/1vGbiaaUXJzxQ_TgK7O0o-Jrt_3PGi4nX?usp=drive_link/" },
-                    { key: "BME 340", url: "https://drive.google.com/drive/folders/1TDjS3wM70GPSPWRk4agnYpIzKtpD_-Ra?usp=drive_link/" },
+                    { key: "معالجة الاشارات الطبية \n BME 390", url: "https://drive.google.com/drive/folders/1vGbiaaUXJzxQ_TgK7O0o-Jrt_3PGi4nX?usp=drive_link/" },
+                    { key: "نظم التحكم الالي \n BME 340", url: "https://drive.google.com/drive/folders/1TDjS3wM70GPSPWRk4agnYpIzKtpD_-Ra?usp=drive_link/" },
                     { key: "مشين عامة \n EPE 354", url: "https://drive.google.com/drive/folders/1n4tp2wtDZTT47dXczIZQCnRsB7dv75Kf?usp=drive_link/" },
-                    { key: "BME 420", url: "https://drive.google.com/drive/folders/1PmKfQNBvyRGCw9jGefbyFOl-k3mJyn85?usp=drive_link/" },
+                    { key: "الاجهزة الطبية \n BME 420", url: "https://drive.google.com/drive/folders/1PmKfQNBvyRGCw9jGefbyFOl-k3mJyn85?usp=drive_link/" },
                     { key: "تفاضل وتكامل 1 \n MATH 101", url: "https://drive.google.com/drive/folders/1Svz44QBFJAsEwHACCFJNJ8fIdLfEnu7n?usp=drive_link/" },
                     { key: "تفاضل وتكامل 2 \n MATH 102", url: "https://drive.google.com/drive/folders/1fKU70LDTMDqEBR1jhvwP7To21n9XS4xV?usp=drive_link/" },
                     { key: "معادلات تفاضلية \n SCC 255", url: "https://drive.google.com/drive/folders/1IyXqc0gL-MYc05MJjR-2CAi1y9EjCWJg?usp=drive_link/" },
                     { key: "تحليل وسيط \n MATH 201", url: "https://drive.google.com/drive/folders/14wtr4YnD7UGwchB9mg3YSZlH4JAfGiAk?usp=drive_link/" },
-                    { key: "BMIE 402", url: "https://drive.google.com/drive/folders/1px-eSomFWqsUIhHp62FBddJeCzdqUUeI?usp=drive_link/" },
-                    { key: "BMIE 540", url: "https://drive.google.com/drive/folders/10bLk7-IDJt1qfgKV6I99dCa2T2tLwY7r?usp=drive_link/" },
-                    { key: "BMIE 423", url: "https://drive.google.com/drive/folders/1TY_K5thW4TtVfDw5szyLv0fSXV7GeH2c?usp=drive_link/" },
-                    { key: "BMIE 350", url: "https://drive.google.com/drive/folders/1c3D2eFuAFw_ZVZPhPHaZJDBr7F0lr0YY?usp=drive_link/" },
-                    { key: "BMIE 460", url: "https://drive.google.com/drive/folders/13apUQLgbLqXQ5ZsK5WaH8judyLTINLU8?usp=drive_link/" },
-                    { key: "BMIE 430", url: "https://drive.google.com/drive/folders/1DJCvz58gVxRR-XxFN-Ja8btMXL4ONnXY?usp=drive_link/" },
-                    { key: "BMIE 530", url: "https://drive.google.com/drive/folders/1LILGS1ENUE1H-7OMQGFY4hOvxesLWsO2?usp=drive_link/" },
-                    { key: "BMIE 531", url: "https://drive.google.com/drive/folders/1x9VgD-eJQXVqkH1sFsG0r4EwFNLUpzdP?usp=drive_link/" },
-                    { key: "BMIE 456", url: "https://drive.google.com/drive/folders/1Jrcuycz09SJfOJkR09LO5gl-wZ1FgvqS?usp=drive_link/" },
-                    { key: "BMIE 452", url: "https://drive.google.com/drive/folders/1O9i9b3iNCIkp5JxIjg_nWIdh1IKb6K91?usp=drive_link/" },
-                    { key: "BMIE 453", url: "https://drive.google.com/drive/folders/1X7V_j5Lln7ntNaMmfPJSq6zmPc5Z0P5D?usp=drive_link/" },
-                    { key: "CPE 354", url: "https://drive.google.com/drive/folders/184kp_pll_Ps-8ELyiJyrkeE2P8TKAa4B?usp=drive_link/" },
-                    { key: "CPE 354L", url: "https://drive.google.com/drive/folders/1hu3Hq18ytOU3PIGJltouvOHwP0CIPPFg?usp=drive_link/" },
-                    { key: "CPE 450", url: "https://drive.google.com/drive/folders/1APM9d8BTw2ls9-Yv3uz5shrQEFfMNeOB?usp=drive_link/" },
-                    { key: "CPE 450L", url: "https://drive.google.com/drive/folders/10h3WBiOrK5yTQfVISq7t-4JOKhM8-h0a?usp=drive_link/" },
-                    { key: "BME 362", url: "https://drive.google.com/drive/folders/1yyqwy67c21PUSjNu2BhSkNQD305dV5ou?usp=drive_link/" },
+                    { key: "سجلات المريض الالكترونية \n BMIE 402", url: "https://drive.google.com/drive/folders/1px-eSomFWqsUIhHp62FBddJeCzdqUUeI?usp=drive_link/" },
+                    { key: "الشبكات وانظمة الرعاية الصحية \n BMIE 540", url: "https://drive.google.com/drive/folders/10bLk7-IDJt1qfgKV6I99dCa2T2tLwY7r?usp=drive_link/" },
+                    { key: "مختبر تطبيقات الحاسوب \n BMIE 423", url: "https://drive.google.com/drive/folders/1TY_K5thW4TtVfDw5szyLv0fSXV7GeH2c?usp=drive_link/" },
+                    { key: "برمجة تطبيقية في علم الاحياء \n BMIE 350", url: "https://drive.google.com/drive/folders/1c3D2eFuAFw_ZVZPhPHaZJDBr7F0lr0YY?usp=drive_link/" },
+                    { key: "تعلم الالة وتطبيقاتها \n في المعلوماتية \n BMIE 460", url: "https://drive.google.com/drive/folders/13apUQLgbLqXQ5ZsK5WaH8judyLTINLU8?usp=drive_link/" },
+                    { key: "المعلوماتية الحيوية 1 \n BMIE 430", url: "https://drive.google.com/drive/folders/1DJCvz58gVxRR-XxFN-Ja8btMXL4ONnXY?usp=drive_link/" },
+                    { key: "المعلوماتية الحيوية 2 \n BMIE 530", url: "https://drive.google.com/drive/folders/1LILGS1ENUE1H-7OMQGFY4hOvxesLWsO2?usp=drive_link/" },
+                    { key: "مختبر المعلوماتية الحيوية \n BMIE 531", url: "https://drive.google.com/drive/folders/1x9VgD-eJQXVqkH1sFsG0r4EwFNLUpzdP?usp=drive_link/" },
+                    { key: "الاحصاء للمعلوماتية الطبية \n BMIE 456", url: "https://drive.google.com/drive/folders/1Jrcuycz09SJfOJkR09LO5gl-wZ1FgvqS?usp=drive_link/" },
+                    { key: "الخوارزميات وتطبيقاتها \n للمعلوماتية \n BMIE 452", url: "https://drive.google.com/drive/folders/1O9i9b3iNCIkp5JxIjg_nWIdh1IKb6K91?usp=drive_link/" },
+                    { key: "مختبر الخوارزميات \n BMIE 453", url: "https://drive.google.com/drive/folders/1X7V_j5Lln7ntNaMmfPJSq6zmPc5Z0P5D?usp=drive_link/" },
+                    { key: "هيكلة البيانات \n CPE 354", url: "https://drive.google.com/drive/folders/184kp_pll_Ps-8ELyiJyrkeE2P8TKAa4B?usp=drive_link/" },
+                    { key: "مختبر هيكلة البيانات \n CPE 354L", url: "https://drive.google.com/drive/folders/1hu3Hq18ytOU3PIGJltouvOHwP0CIPPFg?usp=drive_link/" },
+                    { key: "تصميم انظمة قواعد البيانات \n CPE 450", url: "https://drive.google.com/drive/folders/1APM9d8BTw2ls9-Yv3uz5shrQEFfMNeOB?usp=drive_link/" },
+                    { key: "مختبر تصميم انظمة قواعد البيانات \n CPE 450L", url: "https://drive.google.com/drive/folders/10h3WBiOrK5yTQfVISq7t-4JOKhM8-h0a?usp=drive_link/" },
+                    { key: "الاشارات والنظم الطبية \n BME 362", url: "https://drive.google.com/drive/folders/1yyqwy67c21PUSjNu2BhSkNQD305dV5ou?usp=drive_link/" },
                     { key: "بيولوجيا عامة \n SCC 111", url: "https://drive.google.com/drive/folders/1W5xCHBtmQ0uPnO6AqDbm5Og-Cz1wikzx?usp=drive_link/" },
-                    { key: "BME 422", url: "https://drive.google.com/drive/folders/1VwQIGeuEPJlATUgd1fuwuE015Y48LM78?usp=drive_link/" },
+                    { key: "مفاهيم التصوير الطبي \n BME 422", url: "https://drive.google.com/drive/folders/1VwQIGeuEPJlATUgd1fuwuE015Y48LM78?usp=drive_link/" },
 
                 ],
                 [
                     { from: "مقدمة في البرمجة \n CPE 150", to: "مختبر مقدمة في البرمجة \n CPE 150L" }, { from: "مقدمة في البرمجة \n CPE 150", to: "ذكاء اصطناعي \n CPE 286" },
                     { from: "مقدمة في البرمجة \n CPE 150", to: "الدوائر القابلة للبرمجة \n BME 366" },{ from: "ذكاء اصطناعي \n CPE 286", to: "الكتابة التقنية واخلاقيات الهندسة \n ELE 205" },
                     { from: "الدوائر القابلة للبرمجة \n BME 366", to: "مختبر الدوائر القابلة للبرمجة \n BME 367" },{ from: "مقدمة في البرمجة \n CPE 150", to: "التحليلات العددية في الهندسة \n CME 310" },
-                    { from: "الكتابة التقنية واخلاقيات الهندسة \n ELE 205", to: "BMIE 362" },{ from: "BMIE 362", to: "BMIE 402" },
-                    { from: "BMIE 402", to: "BMIE 540" },{ from: "BMIE 402", to: "BMIE 423" },
-                    { from: "التحليلات العددية في الهندسة \n CME 310", to: "BMIE 350" },{ from: "BMIE 350", to: "BMIE 430" },
-                    { from: "BMIE 430", to: "BMIE 456" },{ from: "BMIE 430", to: "BMIE 530" },
-                    { from: "BMIE 530", to: "BMIE 531" },{ from: "BMIE 430", to: "BMIE 452" },
-                    { from: "BMIE 452", to: "BMIE 453" },{ from: "BMIE 350", to: "CPE 354" },
-                    { from: "CPE 354", to: "CPE 354L" },{ from: "CPE 354", to: "BMIE 452" },
-                    { from: "CPE 354", to: "CPE 450" },{ from: "CPE 450", to: "CPE 450L" },
-                    { from: "CPE 450", to: "BMIE 460" },{ from: "BMIE 350", to: "BMIE 423" },
+                    { from: "الكتابة التقنية واخلاقيات الهندسة \n ELE 205", to: "الاقتصاد والادارة الهندسية \n BMIE 362" },{ from: "الاقتصاد والادارة الهندسية \n BMIE 362", to: "سجلات المريض الالكترونية \n BMIE 402" },
+                    { from: "سجلات المريض الالكترونية \n BMIE 402", to: "الشبكات وانظمة الرعاية الصحية \n BMIE 540" },{ from: "سجلات المريض الالكترونية \n BMIE 402", to: "مختبر تطبيقات الحاسوب \n BMIE 423" },
+                    { from: "التحليلات العددية في الهندسة \n CME 310", to: "برمجة تطبيقية في علم الاحياء \n BMIE 350" },{ from: "برمجة تطبيقية في علم الاحياء \n BMIE 350", to: "المعلوماتية الحيوية 1 \n BMIE 430" },
+                    { from: "المعلوماتية الحيوية 1 \n BMIE 430", to: "الاحصاء للمعلوماتية الطبية \n BMIE 456" },{ from: "المعلوماتية الحيوية 1 \n BMIE 430", to: "المعلوماتية الحيوية 2 \n BMIE 530" },
+                    { from: "المعلوماتية الحيوية 2 \n BMIE 530", to: "مختبر المعلوماتية الحيوية \n BMIE 531" },{ from: "المعلوماتية الحيوية 1 \n BMIE 430", to: "الخوارزميات وتطبيقاتها \n للمعلوماتية \n BMIE 452" },
+                    { from: "الخوارزميات وتطبيقاتها \n للمعلوماتية \n BMIE 452", to: "مختبر الخوارزميات \n BMIE 453" },{ from: "برمجة تطبيقية في علم الاحياء \n BMIE 350", to: "هيكلة البيانات \n CPE 354" },
+                    { from: "هيكلة البيانات \n CPE 354", to: "مختبر هيكلة البيانات \n CPE 354L" },{ from: "هيكلة البيانات \n CPE 354", to: "الخوارزميات وتطبيقاتها \n للمعلوماتية \n BMIE 452" },
+                    { from: "هيكلة البيانات \n CPE 354", to: "تصميم انظمة قواعد البيانات \n CPE 450" },{ from: "تصميم انظمة قواعد البيانات \n CPE 450", to: "مختبر تصميم انظمة قواعد البيانات \n CPE 450L" },
+                    { from: "تصميم انظمة قواعد البيانات \n CPE 450", to: "تعلم الالة وتطبيقاتها \n في المعلوماتية \n BMIE 460" },{ from: "برمجة تطبيقية في علم الاحياء \n BMIE 350", to: "مختبر تطبيقات الحاسوب \n BMIE 423" },
 
                     { from: "معادلات تفاضلية \n SCC 255", to: "التحليلات العددية في الهندسة \n CME 310" },
                  
                     { from: "بيولوجيا عامة \n SCC 111", to: "تشريح الانسان وعلم الوظائف \n SCC 201" },
-                    { from: "بيولوجيا عامة \n SCC 111", to: "BMIE 430" },
+                    { from: "بيولوجيا عامة \n SCC 111", to: "المعلوماتية الحيوية 1 \n BMIE 430" },
 
                     { from: "كيمياء عامة \n SCC 102", to: "مختبر كيمياء \n CHEM 105" },
 
                     
                     { from: "فيزياء عامة 1 \n PHYS 101", to: "مختبر فيزياء عامة 1 \n PHYS 105" },{ from: "فيزياء عامة 1 \n PHYS 101", to: "فيزياء عامة 2 \n PHYS 102" },
-                    { from: "فيزياء عامة 1 \n PHYS 101", to: "ELE 202" },{ from: "فيزياء عامة 2 \n PHYS 102", to: "مشاغل هندسية \n IE 205" },
+                    { from: "فيزياء عامة 1 \n PHYS 101", to: "الرسم الهندسي باستخدام الحاسوب \n ELE 202" },{ from: "فيزياء عامة 2 \n PHYS 102", to: "مشاغل هندسية \n IE 205" },
                     { from: "فيزياء عامة 2 \n PHYS 102", to: "مختبر فيزياء عامة 2 \n PHYS 106" },
                     
                     { from: "تفاضل وتكامل 1 \n MATH 101", to: "تفاضل وتكامل 2 \n MATH 102" },{ from: "تفاضل وتكامل 2 \n MATH 102", to: "تحليل وسيط \n MATH 201" },
                     { from: "تفاضل وتكامل 2 \n MATH 102", to: "معادلات تفاضلية \n SCC 255" },                    
                     
                     { from: "معادلات تفاضلية \n SCC 255", to: "سيركت 1 \n EPE 220" },{ from: "فيزياء عامة 2 \n PHYS 102", to: "سيركت 1 \n EPE 220" },
-                    { from: "سيركت 1 \n EPE 220", to: "الكترونيات 1 \n ELE 250" },{ from: "سيركت 1 \n EPE 220", to: "BME 362" },
+                    { from: "سيركت 1 \n EPE 220", to: "الكترونيات 1 \n ELE 250" },{ from: "سيركت 1 \n EPE 220", to: "الاشارات والنظم الطبية \n BME 362" },
                     { from: "سيركت 1 \n EPE 220", to: "مشين عامة \n EPE 354" },                    
                    
-                    { from: "BME 362", to: "BME 390" },{ from: "BME 362", to: "BME 340" },
-                    { from: "BME 390", to: "BME 422" },
+                    { from: "الاشارات والنظم الطبية \n BME 362", to: "معالجة الاشارات الطبية \n BME 390" },{ from: "الاشارات والنظم الطبية \n BME 362", to: "نظم التحكم الالي \n BME 340" },
+                    { from: "معالجة الاشارات الطبية \n BME 390", to: "مفاهيم التصوير الطبي \n BME 422" },
                     
-                    { from: "الكترونيات 1 \n ELE 250", to: "مختبر الكترونيات 1 \n ELE 251" },{ from: "الكترونيات 1 \n ELE 250", to: "BME 356" },
-                    { from: "BME 356", to: "BME 380" },{ from: "BME 380", to: "BME 420" },{ from: "مختبر الكترونيات 1 \n ELE 251", to: "BME 421" },
-                    { from: "BME 420", to: "BME 421" },{ from: "BME 420", to: "BME 460" }
+                    { from: "الكترونيات 1 \n ELE 250", to: "مختبر الكترونيات 1 \n ELE 251" },{ from: "الكترونيات 1 \n ELE 250", to: "الالكترو الطبية الحيوية \n BME 356" },
+                    { from: "الالكترو الطبية الحيوية \n BME 356", to: "المجسات الطبية \n BME 380" },{ from: "المجسات الطبية \n BME 380", to: "الاجهزة الطبية \n BME 420" },{ from: "مختبر الكترونيات 1 \n ELE 251", to: "مختبر القياسات \n BME 421" },
+                    { from: "الاجهزة الطبية \n BME 420", to: "مختبر القياسات \n BME 421" },{ from: "الاجهزة الطبية \n BME 420", to: "الاجهزة الطبية \n BME 460" }
                     
                 ]
             );
