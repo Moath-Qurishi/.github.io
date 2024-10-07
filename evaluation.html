@@ -8,64 +8,101 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
+            background: linear-gradient(to bottom, #007bff, #f0f0f0);
             margin: 0;
             padding: 0;
             direction: rtl;
             text-align: right;
+            background-image: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.lovepik.com%2Ffree-png%2F20211103%2Flovepik-record-book-png-image_400238601_wh1200.png&tbnid=CKXXuTTYWKmybM&vet=10CBIQxiAoAmoXChMIsJ6Ksej8iAMVAAAAAB0AAAAAEAc..i&imgrefurl=https%3A%2F%2Fsa.lovepik.com%2Fimage-400238601%2Frecord-book.html&docid=vbKjqXJ7JfxInM&w=1200&h=1159&itg=1&q=%D8%B5%D9%88%D8%B1%20%D9%85%D9%84%D8%A7%D8%AD%D8%B8%D8%A7%D8%AA&ved=0CBIQxiAoAmoXChMIsJ6Ksej8iAMVAAAAAB0AAAAAEAc');
+            background-size: cover; 
+            background-position: center; 
+
         }
         .container {
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease-in-out;
+        }
+        .container:hover {
+            transform: translateY(-5px);
         }
         h2 {
             text-align: center;
             color: #333;
+            font-size: 1.8em;
+            margin-bottom: 20px;
         }
         textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 6px;
             resize: vertical;
+            font-size: 1.1em;
         }
         button {
             width: 100%;
-            padding: 10px;
-            background-color: #007bff;
+            padding: 12px;
+            background-color: #28a745;
             color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             margin-top: 10px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease-in-out;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #218838;
+        }
+        .secondary-button {
+            background-color: #17a2b8;
+        }
+        .secondary-button:hover {
+            background-color: #138496;
         }
         .note {
             background-color: #f8f9fa;
             padding: 15px;
             margin: 10px 0;
-            border-radius: 4px;
+            border-radius: 6px;
             border: 1px solid #ddd;
+            font-size: 1.1em;
+            position: relative;
         }
         .delete-button {
             background-color: red;
             color: white;
             border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
+            padding: 5px;
+            border-radius: 50%;
             cursor: pointer;
-            float: left;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 0.8em;
+            line-height: 1;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .delete-button:hover {
+            background-color: #cc0000;
         }
         #notesContainer {
             display: none;
             margin-top: 20px;
+        }
+        .note-text {
+            margin-right: 50px;
         }
     </style>
 </head>
@@ -74,8 +111,8 @@
 <div class="container">
     <h2>تسجيل الملاحظات والشكاوي</h2>
     <textarea id="noteInput" rows="4" placeholder="أدخل ملاحظتك أو شكواك هنا..."></textarea>
-    <button onclick="addNote()">إضافة</button>
-    <button onclick="toggleNotes()">ظهور الملاحظات والشكاوي</button>
+    <button onclick="addNote()">إضافة ملاحظة</button>
+    <button class="secondary-button" onclick="toggleNotes()">عرض/إخفاء الملاحظات</button>
     <div id="notesContainer"></div>
 </div>
 
@@ -84,34 +121,39 @@
         const noteInput = document.getElementById('noteInput');
         const notesContainer = document.getElementById('notesContainer');
         const noteText = noteInput.value.trim();
+
+        if (noteText === '') {
+            alert('الرجاء إدخال ملاحظة أو شكوى قبل إضافتها.');
+            return;
+        }
         
-        if (noteText === '') return; 
         const noteElement = document.createElement('div');
         noteElement.className = 'note';
         noteElement.innerHTML = `
-            ${noteText}
+            <span class="note-text">${noteText}</span>
             <button class="delete-button" onclick="deleteNote(this)">حذف</button>
         `;
         notesContainer.appendChild(noteElement);
         noteInput.value = ''; 
-        }
+        notesContainer.style.display = 'block'; // Ensure notes container is visible
+    }
 
     function deleteNote(button) {
-        const code = prompt('أدخل الرمز لحذف الملاحظة:');
-        if (code === '123456') {
-            button.parentElement.remove();
-        } else {
-            alert('رمز غير صحيح!');
+        const confirmation = confirm('هل أنت متأكد من رغبتك في حذف هذه الملاحظة؟');
+        if (confirmation) {
+            const code = prompt('أدخل الرمز لحذف الملاحظة:');
+            if (code === '123456') {
+                button.parentElement.remove();
+                alert('تم حذف الملاحظة بنجاح.');
+            } else {
+                alert('رمز غير صحيح!');
+            }
         }
     }
 
     function toggleNotes() {
         const notesContainer = document.getElementById('notesContainer');
-        if (notesContainer.style.display === 'none') {
-            notesContainer.style.display = 'block';
-        } else {
-            notesContainer.style.display = 'none';
-        }
+        notesContainer.style.display = notesContainer.style.display === 'none' ? 'block' : 'none';
     }
 </script>
 
