@@ -2,139 +2,168 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-<style>
-  body {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAApVBMVEVsyuz//v/8/vv9//7///luyeb8/PxnyPhqzPP4/PyM1ux0zOdtzvJxxvRqy+9xyPVoz+GF3O2A1ubz///p/vL/+fn/8fLp/+73/P/w/vnx/PP/9fvr+f7q///9+///+fX67Piv1eKS1eebyeWP0+uI2uCay96Q0uCq3tpb0upbyupazfVcvOtr0O90xup1wfda2/CIyM+N19pmxO6u19eO09iQ59jA4sB8AAAB5UlEQVR4nO3R3XaTQABF4SEQAkknQSPaRqVKm2JIabVR3//RxJ/lO+xZ+7s6t3ud8KZd7N/elunp6nft9U1RhsP7Dx+v90V62m7fdcVtFg6fPvd39+v03PfHh+FLPRfWw2k7rhJ0Hh/HoS7/FFbTMj1Pcfd8fsjKUGT9FJ+q9ISmCV+/zYV1sV5tqpCe5VVs4utsYSGXhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyGfhXwW8lnIZyHf/8IyX6/CtExQVU3VcS5c5P1512zTU8VpN77MhYd8qOJml55qOm3H3x8euuG8OjXp2cSr59h3i5DNhZdTTM8lTI+XYz5/2H7v74ZXCfrx0h9/1nNhcbPP8ixJXVm3efi78wT9y/wFbHbhHO8Qmp8AAAAASUVORK5CYII=');
-    background-color: rgba(26, 39, 39, 0.39); 
-    color: rgb(8, 8, 8);
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 112vh;
-    margin: 0;
-    padding: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الارشاد الطلابي</title>
+    <style>
+        body {
+            background-color: #1b1b1b;
+            color: #fff;
+            font-family: 'Tajawal', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom right, #020024, #090979, #00d4ff);
+            background-size: cover;
+            background-position: center;
+        }
 
-.container {
-    text-align: center;
-}
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
 
-.box {
-    background-color: rgba(3, 34, 63, 0.7);
-    padding: 2px 2px;
-    margin: 10px;
-    border-radius: 50px;
-    display: inline-block;
-    font-weight: bold;
-    font-size: 2em;
-    width: 300px; 
-    min-width: 113px;
-    max-width: 94%; 
-}
-.box-large {
-    background-color: rgba(129, 171, 226, 0.9);
-    text-align: center; 
-}
+        h1 {
+            color: #f39c12;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
 
+        .box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 15px;
+            font-size: 1.2em;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
 
-a {
-    color: white;
-    text-decoration: none;
-}
+        .box:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
 
-a:hover {
-    text-decoration: underline;
-}
+        a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-    margin-top: 1px;
-}
+        a:hover {
+            text-decoration: underline;
+        }
 
-.social-icons a {
-    display: inline-block;
-    margin: 0 10px;
-}
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
 
-.social-icons img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
+        .social-icons a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
 
-.icon {
-    width: 5px;
-    vertical-align: middle;
-    cursor: pointer;
-    margin-left: 10px;
-}
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
 
-.underline {
-    text-decoration: underline;
-}
-
-</style>
-
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
      <hr>
         <div class="box box-large"><span class="underline">الارشاد الطلابي</span> </div>
     <hr>
+
     <div class="container">
         <div class="box box-purple">
-            <h5>ممثل القسم :<br>بشار علاونة</h5>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/bashar.alawneh.522?mibextid=ZbWKwL" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
-                <a href="https://wa.me/962778066159" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
-            </div>
-        </div>
-        <br>
-        <div class="box box-purple">
-            <h5>ممثل الدائرة العامة <br>عون الكايد </h5>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/aoun.alkayed?mibextid=ZbWKwL" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
-                <a href="https://wa.me/962778497789" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
-            </div>
-        </div>
-        <div class="box box-purple">
-            <h5>ممثلة الدائرة العامة <br>حلا علاونة</h5>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/hala.alawnah.5?mibextid=ZbWKwL" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
-                <a href="https://wa.me/96277893761" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
-            </div>
-        </div>
-        <br>
-         <div class="box box-purple">
             <h5>معاذ قريشي</h5>
             <div class="social-icons">
                 <a href="https://web.facebook.com/moad.qurishi?mibextid=ZbWKwL" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
                 <a href="https://www.linkedin.com/in/moath-qurishi-7691ab277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn"></a>
                 <a href="https://wa.me/qr/IU6UYPJJGM7MB1" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
             </div>
+    </div>
+    <br>
+
+        <div class="box box-purple">
+            <h5>ممثل القسم :<br>بشار علاونة</h5>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/bashar.alawneh.522?mibextid=ZbWKwL" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+                <!--<a href="https://wa.me/962778066159" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>-->
+            </div>
         </div>
-         <div class="box box-purple">
+        <br>
+        <div class="box box-purple">
+            <h5>ممثل الدائرة العامة: <br> عون الكايد</h5>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/aoun.alkayed?mibextid=ZbWKwL" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+                <a href="https://wa.me/962778497789" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
+            </div>
+        </div>
+        <div class="box box-purple">
+            <h5>ممثل الدائرة العامة: <br>حلا علاونة</h5>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/hala.alawnah.5?mibextid=ZbWKwL" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+                <a href="https://wa.me/96277893761" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
+            </div>
+        </div>
+        <br>
+        <div class="box box-purple">
             <h5>هشام عبابنة</h5>
             <div class="social-icons">
                 <a href="https://www.facebook.com/hisham.ababneh.Don?mibextid=ZbWKwL"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
                 <a href="https://wa.me/962788593229" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
             </div>
         </div>
- 
+        <div class="box box-purple">
+            <h5>احمد خلايلة</h5>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100062868841880&mibextid=ZbWKwL" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+                <a href="https://www.linkedin.com/in/ahmad-alkhlailah-1169822b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn"></a>
+                <a href="https://wa.me/962797159004" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
+            </div>
+        </div>
+        <div class="box box-purple">
+            <h5>لؤي القاعود</h5>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100005427018822&mibextid=ZbWKwL" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+                <a href="https://www.linkedin.com/in/loay-qaoud-755640300?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn"></a>
+                <a href="https://wa.me/962776202959" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
+            </div>
+            
+        </div>
+        <br>
         <div class="box box-purple">
             <h5>ارام ابو لباد</h5>
             <div class="social-icons">
                 <a href="https://www.facebook.com/profile.php?id=100071625410592&mibextid=ZbWKwL" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
                 <a href="https://wa.me/962796458962" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
             </div>
-        </div>
-        <br>
+        </div>  
+        <div class="box box-purple">
+            <h5>شهد عبيدات</h5>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100085811171507&mibextid=LQQJ4d" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+                <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fshahed-khalid-obeidat-45399b2aa%3Futm_source%3Dshare%26utm_campaign%3Dshare_via%26utm_content%3Dprofile%26utm_medium%3Dios_app%26fbclid%3DIwZXh0bgNhZW0CMTAAAR1_OTtg48dBZ5tNN-ABDABFDQwT_v59afGTfjm0FQotOra-xLt_k88Vysg_aem_vLgVM-e0mj4bBRYld1cYOg&h=AT0HehPg7W-wJgmckpSa-vM6f69VFMN76QxbSyRw9PaGJDlGT05TQvhh3I54M3jhsuZm67xL78pyUiDHLIh1uGw6bTjGKHInzlHq6ax52ctLYIlutGH4UP0njtPYZ8aYNqsrtw" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn"></a>
+                <a href="https://wa.me/962776081850" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
+            </div>
+  
+
         <br>
     </div>
     
