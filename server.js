@@ -11,8 +11,8 @@ const upload = multer({ dest: 'uploads/' });
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'YOUR_EMAIL@gmail.com', // استبدل بـ بريدك الإلكتروني
-        pass: 'YOUR_APP_PASSWORD'     // استبدل بـ "كلمة مرور التطبيق"
+        user: 'ssr75202@gmail.com', // استبدل بـ بريدك الإلكتروني
+        pass: 'zqbe hubk guxj bvzv'     // استبدل بـ "كلمة مرور التطبيق"
     }
 });
 
@@ -28,7 +28,7 @@ app.post('/submit', upload.array('files', 15), (req, res) => {
 
     // إعداد محتوى الإيميل
     let mailOptions = {
-        from: 'YOUR_EMAIL@gmail.com',
+        from: 'ssr75202@gmail.com',
         to: 'moad.qurishi@gmail.com',
         subject: `Files submission from ${name} - Course Code: ${courseCode}`,
         text: `Name: ${name}\nCourse Code: ${courseCode}`,
