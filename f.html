@@ -3,124 +3,127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>فيديوهات ارشادية</title>
+<title>فيديوهات إرشادية</title>
 <style>
   body {
-    background-color: #53e2e2;
-    color: rgb(8, 8, 8);
-    font-family: Arial, sans-serif;
-    font-size: 1em; 
+    background-color: #f0f2f5;
+    color: #333;
+    font-family: 'Tajawal', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 150vh;
+    justify-content: flex-start;
+    height: 100vh;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20230903/pngtree-color-pencils-and-paper-on-wooden-desk-with-colorful-crayons-image_13206542.jpg');
     background-size: cover; 
     background-position: center; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
+    background-attachment: fixed;
   }
-  .box-purple {
-    background-color: #ffffff;
-  }
+
   h1 {
+    font-size: 2.5rem;
+    color: #444;
     text-align: center;
-    margin-top: 0;
+    margin: 20px 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
+
   .video-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 40px;
   }
+
   .video-link {
-    cursor: pointer;
-    color: blue;
+    display: block;
+    text-align: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    color: #333;
+    font-size: 1.1rem;
+    border-radius: 10px;
     text-decoration: none;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #a7e8c8;
-    transition: background-color 0.3s ease;
-    width: auto; 
-    box-sizing: border-box; 
-    text-align: center; 
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1); 
-  }
-  .video-link:hover {
-    background-color: #cfd587;
-  }
-  .video-container > div {
-    flex: 1 0 auto; 
-    margin-bottom: 20px;
-    padding: 10px; 
-  }
-  hr {
-    border: 2px solid black; 
-  }
-  .icon {
-    width: 30px;
-    vertical-align: middle;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     cursor: pointer;
-    margin-left: 10px;
+    border: 1px solid #ddd;
   }
-  .underline {
-    text-decoration: underline;
+
+  .video-link:hover {
+    background-color: #4CAF50;
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  hr {
+    width: 80%;
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+    margin: 40px auto;
+  }
+
+  .box-purple {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .box-purple:hover {
+    background-color: #3e8e41;
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2rem;
+    }
+    .video-link {
+      font-size: 1rem;
+      padding: 10px 15px;
+    }
+    .box-purple {
+      font-size: 1rem;
+      padding: 8px 20px;
+    }
   }
 </style>
 </head>
 <body>
 
-<h1>فيديوهات ارشادية</h1>
+<h1>فيديوهات إرشادية</h1>
 
 <div class="video-container">
-   
-  <div>
-    <p class="video-link" onclick="openVideo('https://youtu.be/6OYDFpE0X9Y?list=PLMW58mwVmp-CtB3eI5lbH9_zdYb4V-BNx')"> آلية استكمال إجراءات القبول الموحد  </p>
-  </div>
-  
-  <div>
-    <p class="video-link" onclick="openVideo('https://www.youtube.com/embed/t-p5Exz0NMA')">تسجيل المواد وتغيير الشعب</p>
-  </div>
-  <div>
-    <p class="video-link" onclick="openVideo('https://youtu.be/vFLwT2I4sNc?list=PLMW58mwVmp-CtB3eI5lbH9_zdYb4V-BNx')"> خطوات تفعيل البريد الإلكتروني الجامعي    </p>
-  </div>
-  <div>
-    <p class="video-link" onclick="openVideo('https://youtu.be/TTYBA5OCL8Q?si=x8qtGxY7nBTCQlk9')">طريقة تنزيل تيمز على اللاب توب</p>
-  </div>
-
-  <div>
-    <p class="video-link" onclick="openVideo('https://www.youtube.com/embed/3TKY82sZ1Ck')">كم رسوم الدفع والمطالبة المالية</p>
-  </div>
-  <div>
-    <p class="video-link" onclick="openVideo('https://www.youtube.com/embed/K8R25Lx8eH4')">تقديم طلبات غير مكتمل</p>
-  </div>
- <br>
-  <div>
-    <p class="video-link" onclick="openVideo('https://www.youtube.com/embed/2qb5OcAf268')">حساب تأثير إعادة مادة <br> على المعدل التراكمي</p>
-  </div>
-  <div>
-    <p class="video-link" onclick="openVideo('https://www.youtube.com/embed/4svohBV9O80')">فتح الأبحاث العلمية <br> بشكل مجاني</p>
-  </div>
+  <a class="video-link" onclick="openVideo('https://youtu.be/6OYDFpE0X9Y?list=PLMW58mwVmp-CtB3eI5lbH9_zdYb4V-BNx')">آلية استكمال إجراءات القبول الموحد</a>
+  <a class="video-link" onclick="openVideo('https://www.youtube.com/embed/t-p5Exz0NMA')">تسجيل المواد وتغيير الشعب</a>
+  <a class="video-link" onclick="openVideo('https://youtu.be/vFLwT2I4sNc?list=PLMW58mwVmp-CtB3eI5lbH9_zdYb4V-BNx')">خطوات تفعيل البريد الإلكتروني الجامعي</a>
+  <a class="video-link" onclick="openVideo('https://youtu.be/TTYBA5OCL8Q?si=x8qtGxY7nBTCQlk9')">طريقة تنزيل تيمز على اللاب توب</a>
+  <a class="video-link" onclick="openVideo('https://www.youtube.com/embed/3TKY82sZ1Ck')">كم رسوم الدفع والمطالبة المالية</a>
+  <a class="video-link" onclick="openVideo('https://www.youtube.com/embed/K8R25Lx8eH4')">تقديم طلبات غير مكتمل</a>
+  <a class="video-link" onclick="openVideo('https://www.youtube.com/embed/2qb5OcAf268')">حساب تأثير إعادة مادة على المعدل التراكمي</a>
+  <a class="video-link" onclick="openVideo('https://www.youtube.com/embed/4svohBV9O80')">فتح الأبحاث العلمية بشكل مجاني</a>
 </div>
 
 <hr>
 
-<!-- لا حاجة ل iframe هنا -->
+<a href="https://admreg.yu.edu.jo/GCS.html" target="_blank" class="box-purple">انقر هنا لموقع حساب المعدل</a>
 
 <script>
 function openVideo(videoUrl) {
-  window.open(videoUrl, '_blank'); // فتح الفيديو في علامة تبويب جديدة
+  window.open(videoUrl, '_blank');
 }
 </script>
-
-<a href="https://admreg.yu.edu.jo/GCS.html" target="_blank">
-  <div class="box box-purple">انقر هنا لموقع حساب المعدل</div>
-</a>    
 
 </body>
 </html>
