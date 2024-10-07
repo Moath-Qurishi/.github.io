@@ -85,18 +85,18 @@
 <body>
     <div class="container">
         <h2>File Submission Form</h2>
-        <form id="submissionForm">
+        <form id="submissionForm" action="http://localhost:3000/submit" method="POST" enctype="multipart/form-data">
             <label for="name">Submitter Name (English only):</label>
             <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+">
             <label for="courseCode">Course Code:</label>
             <input type="text" id="courseCode" name="courseCode" required>
             <div class="file-inputs">
                 <label for="pdfFiles">PDF Files (up to 15 files, 100 MB max):</label>
-                <input type="file" id="pdfFiles" name="pdfFiles" accept="application/pdf" multiple>
+                <input type="file" id="pdfFiles" name="files" accept="application/pdf" multiple>
                 <label for="imageFiles">Image Files (up to 15 files, 100 MB max):</label>
-                <input type="file" id="imageFiles" name="imageFiles" accept="image/*" multiple>
+                <input type="file" id="imageFiles" name="files" accept="image/*" multiple>
                 <label for="audioFiles">Audio Files (up to 15 files, 100 MB max):</label>
-                <input type="file" id="audioFiles" name="audioFiles" accept="audio/*" multiple>
+                <input type="file" id="audioFiles" name="files" accept="audio/*" multiple>
             </div>
             <button type="submit">Submit</button>
             <div class="error" id="error"></div>
@@ -142,26 +142,22 @@
             formData.append('name', name);
             formData.append('courseCode', courseCode);
             for (const file of pdfFiles) {
-                formData.append('pdfFiles', file);
+                formData.append('files', file);
             }
             for (const file of imageFiles) {
-                formData.append('imageFiles', file);
+                formData.append('files', file);
             }
             for (const file of audioFiles) {
-                formData.append('audioFiles', file);
+                formData.append('files', file);
             }
 
-            fetch('YOUR_SERVER_ENDPOINT_HERE', {
+            fetch('http://localhost:3000/submit', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
+            .then(response => response.text())
             .then(data => {
-                if (data.success) {
-                    alert('Files submitted successfully!');
-                } else {
-                    errorDiv.textContent = data.error;
-                }
+                alert(data);
             })
             .catch(error => {
                 errorDiv.textContent = "An error occurred during submission. Please try again.";
