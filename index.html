@@ -105,16 +105,36 @@
             border-radius: 10px;
         }
 
-        .footer {
-            background-color: #706f6b;
-            color: white;
-            text-align: center;
-            padding: 5px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+            .footer {
+        color: white;
+        text-align: left;
+        padding: 5px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        direction: ltr;
+    }
 
+    .footer .links {
+        display: inline-block;
+        background-color: #806200; /* اللون المغطي للنص والأيقونات فقط */
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .footer .links h4 {
+        display: inline-block;
+        margin-right: 10px;
+        margin: 0;
+    }
+
+    .footer .icon {
+        width: 30px;
+        vertical-align: middle;
+        cursor: pointer;
+        margin-left: 10px;
+        display: inline-block;
+    }
         .footer a {
             color: white;
             margin: 0 5px;
@@ -256,26 +276,25 @@
             </div>
         </div>
 
-<!-- 
+
 <div class="footer">
     <span class="name"></span>
     <div class="links">
-        <h4>Website Designer</h4>
+        <h4>    تصميم: معاذ قريشي </h4>
+        <br>
         <a href="https://web.facebook.com/moad.qurishi?mibextid=ZbWKwL" target="_blank">
             <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
         </a>
         <a href="https://www.linkedin.com/in/moath-qurishi-7691ab277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
             <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
         </a>
-        <a href="https://www.instagram.com/qurishi467?igsh=MWxvcmcwaHNqeW81cw==" target="_blank">
-            <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-        </a>        
+              
         <a href="https://wa.me/qr/IU6UYPJJGM7MB1" target="_blank">
             <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
         </a>
     </div>     
 </div>
--->
+
 <script>
     function toggleMenu() {
         var navbar = document.querySelector('.navbar');
